@@ -1,14 +1,11 @@
-# Image de base légère avec Java 17
-FROM eclipse-temurin:17-jdk-alpine
+# Utilise une image de base Java
+FROM openjdk:17-jdk-slim
 
-# Crée un dossier dans le conteneur
+# Crée un dossier pour l'application
 WORKDIR /app
 
-# Copie ton fichier .jar dans l'image Docker
-COPY target/Lab0_LOG430.jar app.jar
+# Copie le JAR dans l'image Docker
+COPY Lab0_LOG430.jar app.jar
 
-# Expose le port utilisé par l'API
-EXPOSE 8080
-
-# Lance l'application
+# Commande à exécuter quand le conteneur démarre
 ENTRYPOINT ["java", "-jar", "app.jar"]
