@@ -18,6 +18,11 @@ jobs:
           sudo apt install -y checkstyle
           curl -LJO https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
 
+      - name: Install Apache Commons CLI
+        run: |
+         sudo apt-get update
+         sudo apt-get install -y libcommons-cli-java
+
       - name: Run Checkstyle
         run: |
           checkstyle -c google_checks.xml $(find . -name "*.java")
