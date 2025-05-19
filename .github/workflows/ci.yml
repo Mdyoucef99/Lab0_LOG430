@@ -14,9 +14,11 @@ jobs:
 
       - name: Install Checkstyle
         run: |
-          CHECKSTYLE_VERSION=10.13.1
-          curl -L -o checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-${CHECKSTYLE_VERSION}/checkstyle-${CHECKSTYLE_VERSION}-all.jar
-          curl -LJO https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
+            CHECKSTYLE_VERSION=10.13.1
+            curl -L -o checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-${CHECKSTYLE_VERSION}/checkstyle-${CHECKSTYLE_VERSION}-all.jar
+            # Use -L -o to save google_checks.xml with exact name
+            curl -L -o google_checks.xml https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
+            ls -l checkstyle.jar google_checks.xml
 
       - name: Install Apache Commons CLI
         run: |
