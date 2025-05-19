@@ -12,14 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Download Checkstyle and config
+      - name: Download Checkstyle
         run: |
-         CHECKSTYLE_VERSION=10.13.1
-         curl -L -o checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-${CHECKSTYLE_VERSION}/checkstyle-${CHECKSTYLE_VERSION}-all.jar
-         curl -L -o google_checks.xml https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
+          wget -O checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.12.3/checkstyle-10.12.3-all.jar
+          curl -L -o google_checks.xml https://raw.githubusercontent.com/checkstyle/checkstyle/checkstyle-10.12.3/src/main/resources/google_checks.xml
 
       - name: Run Checkstyle
-        run: java -jar checkstyle.jar -c google_checks.xml $(find . -name "*.java")
+        run: |
+          java -jar checkstyle.jar -c google_checks.xml $(find . -name "*.java")
 
   test:
     name: Run unit tests
