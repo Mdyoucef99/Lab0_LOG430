@@ -12,14 +12,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Download Checkstyle config
+        run: curl -L -o google_checks.xml https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
+
       - name: Run Checkstyle
-        uses: checkstyle/action@v1
+        uses: marlonalves/checkstyle-action@v2
         with:
           version: '10.13.1'
           config: 'google_checks.xml'
-
-      - name: Download Checkstyle config
-        run: curl -L -o google_checks.xml https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
+          files: '**/*.java'
 
   test:
     name: Run unit tests
