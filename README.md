@@ -2,7 +2,7 @@
 
 ## Description
 
-Ce projet contient une application Java minimale qui affiche **Hello World** dans la console.
+Ce projet contient une application Java minimale qui affiche **Hello World** dans la console.Java est un langage très populaire utilisé dans de nombreux environnements. Il offre une documentation riche qui facilite le débogage lors de l'exécution des tests ainsi que lors de la compilation. De plus, Java s'intègre facilement dans les pipelines CI/CD pour les étapes de lint (Checkstyle), build et déploiement dans Docker.
 
 ## Exécution de l’application
 
