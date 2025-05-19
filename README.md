@@ -6,6 +6,8 @@ Ce projet contient une application Java minimale qui affiche **Hello World** dan
 
 ## Exécution de l’application
 
+Dans le VM le dossier racine ce trouve dans le fichier projects/LAB0_LOG430.Assurez vous de faire un git -pull pour avoir la derniere version du repo
+
 Depuis le dossier racine du projet, exécutez le JAR :
 
 ```bash
@@ -41,7 +43,7 @@ Hello World!
 
 ## Orchestration avec Docker Compose
 
-Si vous avez un `docker-compose.yaml` à la racine, lancez :
+Il existe un `docker-compose.yaml` à la racine, lancez :
 
 ```bash
 docker-compose up
@@ -63,4 +65,4 @@ La pipeline CI/CD est configurée via **GitHub Actions** (ou GitLab CI/CD) et se
 2. **Tests unitaires** (JUnit)
 3. **Build & publication** de l’image Docker (avec tag personnalisé)
 
-Pour suivre l’exécution, ouvrez le dépôt et consultez la section **Actions** (ou **CI/CD**).
+Pour suivre l’exécution, ouvrez le dépôt et consultez la section **Actions**.
