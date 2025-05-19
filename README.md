@@ -6,7 +6,7 @@ Ce projet contient une application Java minimale qui affiche **Hello World** dan
 
 ## Exécution de l’application
 
-Dans la VM le dossier racine ce trouve dans le fichier projects/LAB0_LOG430.Assurez vous de faire un git -pull pour avoir la derniere version du repo
+Dans la VM, le dossier racine ce trouve dans le fichier projects/LAB0_LOG430 .Assurez vous de faire un git -pull pour avoir la derniere version du repo
 
 Depuis le dossier racine du projet, exécutez le JAR :
 
