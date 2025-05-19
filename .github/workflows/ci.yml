@@ -12,22 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Checkstyle
-        run: |
-            CHECKSTYLE_VERSION=10.13.1
-            curl -L -o checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-${CHECKSTYLE_VERSION}/checkstyle-${CHECKSTYLE_VERSION}-all.jar
-            # Use -L -o to save google_checks.xml with exact name
-            curl -L -o google_checks.xml https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
-            ls -l checkstyle.jar google_checks.xml
-
-      - name: Install Apache Commons CLI
-        run: |
-         sudo apt-get update
-         sudo apt-get install -y libcommons-cli-java
-
       - name: Run Checkstyle
-        run: |
-           java -jar checkstyle.jar -c google_checks.xml $(find . -name "*.java")
+        uses: checkstyle/action@v1
+        with:
+          version: '10.13.1'
+          config: 'google_checks.xml'
+
+      - name: Download Checkstyle config
+        run: curl -L -o google_checks.xml https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
 
   test:
     name: Run unit tests
