@@ -16,9 +16,8 @@ jobs:
         run: curl -L -o google_checks.xml https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
 
       - name: Run Checkstyle
-        uses: marlonalves/checkstyle-action@v2
+        uses: checkstyle/checkstyle-action@v1
         with:
-          version: '10.13.1'
           config: 'google_checks.xml'
           files: '**/*.java'
 
