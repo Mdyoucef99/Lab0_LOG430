@@ -1,7 +1,66 @@
-# Lab0_LOG430 
+# Lab0 – Application Java Simple
 
-This is the read me file for the lab0 
+## Description
 
-in order to execute open the folder src and run the file App.java 
+Ce projet contient une application Java minimale qui affiche **Hello World** dans la console.
 
-the code simply returns a hello world in the console.
+## Exécution de l’application
+
+Depuis le dossier racine du projet, exécutez le JAR :
+
+```bash
+java -jar Lab0_LOG430.jar
+```
+
+## Tests unitaires
+
+Les bibliothèques JUnit se trouvent dans le dossier `lib` (`junit-4.13.2.jar` et `hamcrest-core-1.3.jar`). Depuis le dossier racine :
+
+```bash
+# Compiler le test
+javac -d LABO0/lab/bin -cp "lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar" LABO0/lab/tests/lab/tests/AppTest.java
+
+# Exécuter le test
+java -cp "LABO0/lab/bin:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore lab.tests.AppTest
+```
+
+## Conteneurisation
+
+Construisez et testez l’image Docker :
+
+```bash
+docker build -t lab0_api .
+docker run --rm lab0_api
+```
+
+**Résultat attendu :**
+
+```
+Hello World!
+```
+
+## Orchestration avec Docker Compose
+
+Si vous avez un `docker-compose.yaml` à la racine, lancez :
+
+```bash
+docker-compose up
+```
+
+**Résultat attendu :** `Hello World!`
+
+Pour arrêter les services :
+
+```bash
+docker-compose down
+```
+
+## Intégration continue (CI/CD)
+
+La pipeline CI/CD est configurée via **GitHub Actions** (ou GitLab CI/CD) et se déclenche à chaque push ou merge request. Elle exécute dans l’ordre :
+
+1. **Lint** (Checkstyle)
+2. **Tests unitaires** (JUnit)
+3. **Build & publication** de l’image Docker (avec tag personnalisé)
+
+Pour suivre l’exécution, ouvrez le dépôt et consultez la section **Actions** (ou **CI/CD**).
